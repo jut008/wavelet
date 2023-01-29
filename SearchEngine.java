@@ -33,6 +33,7 @@ class Handler implements URLHandler {
                 String[] parameters = url.getQuery().split("=");
                 if (parameters[0].equals("s")) {
                     if (arrayCounter == strArray.length) {
+                        temp = strArray;
                         for (int i = 0; i < strArray.length; i++) {
                             temp[i] = strArray[i];
                         }
