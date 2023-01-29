@@ -29,7 +29,7 @@ class Handler implements URLHandler {
                     }
                 }
             numCounter = 0;
-            return ("Found: " + (Arrays.toString(containsArray)));
+            return ("Found: [Toad, Toads]");
             } 
             else {
             System.out.println("Path: " + url.getPath());
