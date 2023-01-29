@@ -22,7 +22,7 @@ class Handler implements URLHandler {
                 if (parameters[0].equals("s")) {
                     for (int i = 0 ; i < strArray.length ; i++) {
                         if (strArray[i].contains(parameters[1])) {
-                            containsArray = strArray;
+                            containsArray = new String[storage];
                             containsArray[numCounter] = strArray[i];
                             numCounter++;
                         }
