@@ -28,6 +28,7 @@ class Handler implements URLHandler {
                         }
                     }
                 }
+            numCounter = 0;
             return ("Found: " + (Arrays.toString(containsArray)));
             } 
             else {
