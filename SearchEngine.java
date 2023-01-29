@@ -36,7 +36,8 @@ class Handler implements URLHandler {
                         for (int i = 0; i < strArray.length; i++) {
                             temp[i] = strArray[i];
                         }
-                        strArray = new String[storage+1];
+                        storage++;
+                        strArray = new String[storage];
                         for (int i = 0; i < temp.length; i++) {
                             strArray[i] = temp[i];
                         }
