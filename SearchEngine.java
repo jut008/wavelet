@@ -6,11 +6,11 @@ import java.util.*;
 class Handler implements URLHandler {
     // The one bit of state on the server: a number that will be manipulated by
     // various requests.
-    int num = 0;
     int arrayCounter = 0;
-    int storage = 10;
+    int storage = 1;
     String[] strArray = new String[storage];
     String[] containsArray = new String[storage];
+    String[] temp = new String[storage];
 
     public String handleRequest(URI url) {
         if (url.getPath().equals("/")) {
@@ -32,6 +32,15 @@ class Handler implements URLHandler {
             if (url.getPath().contains("/add")) {
                 String[] parameters = url.getQuery().split("=");
                 if (parameters[0].equals("s")) {
+                    if (arrayCounter == strArray.length) {
+                        for (int i = 0; i < strArray.length; i++) {
+                            temp[i] = strArray[i];
+                        }
+                        strArray = new String[storage+1];
+                        for (int i = 0; i < temp.length; i++) {
+                            strArray[i] = temp[i];
+                        }
+                    }
                     strArray[arrayCounter] = parameters[1];
                     arrayCounter++;
                     return (parameters[1] + " stored! Strings stored: " + (Arrays.toString(strArray)));
