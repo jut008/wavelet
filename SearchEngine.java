@@ -1,5 +1,7 @@
 import java.io.IOException;
 import java.net.URI;
+import java.io.*;
+import java.util.*;
 
 class Handler implements URLHandler {
     // The one bit of state on the server: a number that will be manipulated by
@@ -12,7 +14,7 @@ class Handler implements URLHandler {
 
     public String handleRequest(URI url) {
         if (url.getPath().equals("/")) {
-            return ("Strings stored: [" + strArray + "]");
+            return ("Strings stored: [" + (Arrays.toString(strArray)) + "]");
         } 
         else if (url.getPath().equals("/search")) {
             String[] parameters = url.getQuery().split("=");
@@ -23,7 +25,7 @@ class Handler implements URLHandler {
                         }
                     }
                 }
-            return ("Found: " + containsArray);
+            return ("Found: " + (Arrays.toString(containsArray)));
             } 
             else {
             System.out.println("Path: " + url.getPath());
@@ -32,7 +34,7 @@ class Handler implements URLHandler {
                 if (parameters[0].equals("s")) {
                     strArray[arrayCounter] = parameters[1];
                     arrayCounter++;
-                    return (parameters[1] + " stored! Strings stored: [" + strArray + "]");
+                    return (parameters[1] + " stored! Strings stored: [" + (Arrays.toString(strArray)) + "]");
                 }
             }
             return "404 Not Found!";
@@ -40,7 +42,7 @@ class Handler implements URLHandler {
     }
 }
 
-class NumberServer {
+class SearchServer {
     public static void main(String[] args) throws IOException {
         if(args.length == 0){
             System.out.println("Missing port number! Try any number between 1024 to 49151");
