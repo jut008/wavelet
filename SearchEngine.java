@@ -8,6 +8,7 @@ class Handler implements URLHandler {
     // various requests.
     int arrayCounter = 0;
     int storage = 1;
+    int numCounter = 0;
     String[] strArray = new String[storage];
     String[] containsArray = new String[storage];
     String[] temp = new String[storage];
@@ -21,7 +22,9 @@ class Handler implements URLHandler {
                 if (parameters[0].equals("s")) {
                     for (int i = 0 ; i < strArray.length ; i++) {
                         if (strArray[i].contains(parameters[1])) {
-                            containsArray[i] = strArray[i];
+                            containsArray = strArray;
+                            containsArray[numCounter] = strArray[i];
+                            numCounter++;
                         }
                     }
                 }
