@@ -14,7 +14,7 @@ class Handler implements URLHandler {
 
     public String handleRequest(URI url) {
         if (url.getPath().equals("/")) {
-            return ("Strings stored: [" + (Arrays.toString(strArray)) + "]");
+            return ("Strings stored: " + (Arrays.toString(strArray)));
         } 
         else if (url.getPath().equals("/search")) {
             String[] parameters = url.getQuery().split("=");
@@ -34,7 +34,7 @@ class Handler implements URLHandler {
                 if (parameters[0].equals("s")) {
                     strArray[arrayCounter] = parameters[1];
                     arrayCounter++;
-                    return (parameters[1] + " stored! Strings stored: [" + (Arrays.toString(strArray)) + "]");
+                    return (parameters[1] + " stored! Strings stored: " + (Arrays.toString(strArray)));
                 }
             }
             return "404 Not Found!";
